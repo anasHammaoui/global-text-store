@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import * as motion from "framer-motion/client";
 import { cn } from "@/lib/utils";
@@ -9,6 +10,8 @@ import {
 } from "@/components/ui/carousel";
 import ProductCard from "./ProductCard";
 import { Product } from "@/types/product.types";
+import { useTranslation } from "@/lib/hooks/useTranslation";
+
 import Link from "next/link";
 
 type ProductListSecProps = {
@@ -18,6 +21,8 @@ type ProductListSecProps = {
 };
 
 const ProductListSec = ({ title, data, viewAllLink }: ProductListSecProps) => {
+    const t = useTranslation();
+
   return (
     <section className="max-w-frame mx-auto text-center">
       <motion.h2
@@ -61,7 +66,7 @@ const ProductListSec = ({ title, data, viewAllLink }: ProductListSecProps) => {
               href={viewAllLink}
               className="w-full inline-block sm:w-[218px] px-[54px] py-4 border rounded-full hover:bg-black hover:text-white text-black transition-all font-medium text-sm sm:text-base border-black/10"
             >
-              View All
+              {t.header.viewAll || "View All"}
             </Link>
           </div>
         )}

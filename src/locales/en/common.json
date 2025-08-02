@@ -9,6 +9,42 @@
       "internationalBrands": "International Brands",
       "highQualityProducts": "High-Quality Products",
       "happyCustomers": "Happy Customers"
+    },
+    "newArrivals": "New Arrivals",
+    "topSelling": "Best Sellers",
+    "viewAll": "View All"
+  },
+  "copyright": "© 2023 Global Tex Store. All rights reserved.",
+    "links": {
+      "home": "Home",
+      "shop": "Shop",
+      "tShirt": "T-Shirt",
+      "jeans": "Jeans",
+      "shirts": "Shirts"
+    },
+  "shop": {
+    "title": "Casual",
+    "showing": "Showing",
+    "of": "of",
+    "products": "Products",
+    "category": "Category",
+    "sortBy": "Sort by",
+    "ProductListSec": "You might also like",
+    "categories": {
+      "all": "All",
+      "tShirts": "T-Shirts",
+      "jeans": "Jeans",
+      "shirts": "Shirts",
+      "polos": "Polos",
+      "shorts": "Shorts",
+      "hoodies": "Hoodies",
+      "caps": "Caps"
+    },
+    "sortOptions": {
+      "default": "Default",
+      "mostPopular": "Date",
+      "lowPrice": "Low Price",
+      "highPrice": "High Price"
     }
   }
 }

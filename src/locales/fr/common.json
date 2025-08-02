@@ -1,6 +1,13 @@
 {
   "welcome": "Bienvenue dans notre application",
   "languageSelect": "Sélectionnez votre langue",
+  "links": {
+    "home": "Accueil",
+    "shop": "Boutique",
+    "tShirt": "T-Shirts",
+    "jeans": "Jeans",
+    "shirts": "Chemises"
+  },
   "header": {
     "title": "VÊTEMENTS CORRESPONDENT À VOTRE STYLE",
     "description": "Parcourez notre large gamme de vêtements soigneusement conçus, pensés pour révéler votre individualité et s’adapter à votre style.",
@@ -9,6 +16,35 @@
       "internationalBrands": "Marques internationales",
       "highQualityProducts": "Produits de haute qualité",
       "happyCustomers": "Clients satisfaits"
+    },
+    "newArrivals": "Nouveautés",
+    "topSelling": "Meilleures ventes",
+    "viewAll": "Voir tout"
+  },
+  "copyright": "© 2023 Global Tex Store. Tous droits réservés.",
+  "shop": {
+    "title": "Décontracté",
+    "showing": "Affichage",
+    "of": "de",
+    "products": "Produits",
+    "category": "Catégorie",
+    "sortBy": "Trier par",
+    "ProductListSec": "Vous pourriez aussi aimer",
+    "categories": {
+      "all": "Tout",
+      "tShirts": "T-Shirts",
+      "jeans": "Jeans",
+      "shirts": "Chemises",
+      "polos": "Polos",
+      "shorts": "Shorts",
+      "hoodies": "Sweats à capuche",
+      "caps": "Casquettes"
+    },
+    "sortOptions": {
+      "default": "Défaut",
+      "mostPopular": "Date",
+      "lowPrice": "Prix bas",
+      "highPrice": "Prix élevé"
     }
   }
 }

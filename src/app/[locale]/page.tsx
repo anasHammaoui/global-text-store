@@ -17,7 +17,7 @@ export default function Home() {
       <Brands />
       <main className="my-[50px] sm:my-[72px]">
         <ProductListSec
-          title="NEW ARRIVALS"
+          title={t.header?.newArrivals || "New Arrivals"}
           data={[...products].sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())}
           viewAllLink={`/${locale}/shop`}
         />
@@ -26,7 +26,7 @@ export default function Home() {
         </div>
         <div className="mb-[50px] sm:mb-20">
           <ProductListSec
-            title={t.welcome || "Welcome to our application"}
+            title={t.header?.topSelling || "Best Sellers"}
             data={[...products].sort((a, b) => (b.rating ?? 0) - (a.rating ?? 0))}
             viewAllLink={`/${locale}/shop`}
           />

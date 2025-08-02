@@ -10,31 +10,47 @@ import {
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
 import { MenuItem } from "./MenuItem";
-import { useParams } from "next/navigation";
+import { useParams, useRouter, usePathname } from "next/navigation";
+import { useTranslation } from "@/lib/hooks/useTranslation";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 const TopNavbar = () => {
   const params = useParams();
+  const router = useRouter();
+  const pathname = usePathname();
   const locale = params.locale as string;
+  const t = useTranslation();
+
+  const handleLanguageChange = (newLocale: string) => {
+    const currentPath = pathname.replace(`/${locale}`, '');
+    router.push(`/${newLocale}${currentPath}`);
+  };
 
   const data: NavMenu = [
     {
       id: 1,
       type: "MenuItem",
-      label: "T-Shirts",
+      label: t?.links?.tShirt || "T-Shirts",
       url: `/${locale}/shop?category=t-shirt`,
       children: [],
     },
     {
       id: 2,
       type: "MenuItem",
-      label: "Jeans",
+      label: t?.links?.jeans || "Jeans",
       url: `/${locale}/shop?category=jeans`,
       children: [],
     },
     {
       id: 3,
       type: "MenuItem",
-      label: "Shirts",
+      label: t?.links?.shirts || "Shirts",
       url: `/${locale}/shop?category=shirt`,
       children: [],
     },
@@ -70,6 +86,21 @@ const TopNavbar = () => {
             ))}
           </NavigationMenuList>
         </NavigationMenu>
+        
+        {/* Language Selector */}
+        <div className="flex items-center">
+          <Select value={locale} onValueChange={handleLanguageChange}>
+            <SelectTrigger className="w-fit border-none shadow-none bg-transparent text-sm font-medium">
+              <SelectValue>
+                {locale === 'en' ? '🇺🇸 EN' : '🇫🇷 FR'}
+              </SelectValue>
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="en">🇺🇸 English</SelectItem>
+              <SelectItem value="fr">🇫🇷 Français</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
       </div>
     </nav>
   );

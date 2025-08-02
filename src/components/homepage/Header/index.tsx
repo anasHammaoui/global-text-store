@@ -50,7 +50,7 @@ const Header = () => {
               href={`/${locale}/shop`}
               className="inline-block mb-5 md:mb-12 text-center bg-black hover:bg-black/80 transition-all text-white px-8 py-3 rounded-full hover:animate-pulse"
             >
-              {t.header?.shopNow || "Shop Now"}
+              {t.header?.shopButton || "Shop Now"}
             </Link>
           </motion.div>
           <motion.div

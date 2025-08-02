@@ -11,24 +11,24 @@ import { MenuItem } from "./MenuItem";
 
 const data: NavMenu = [
   {
+    id: 1,
+    type: "MenuItem",
+    label: "T-Shirts",
+    url: "/shop?category=t-shirt",
+    children: [],
+  },
+  {
     id: 2,
     type: "MenuItem",
-    label: "On Sale",
-    url: "/shop#on-sale",
+    label: "Jeans",
+    url: "/shop?category=jeans",
     children: [],
   },
   {
     id: 3,
     type: "MenuItem",
-    label: "New Arrivals",
-    url: "/shop#new-arrivals",
-    children: [],
-  },
-  {
-    id: 4,
-    type: "MenuItem",
-    label: "Brands",
-    url: "/shop#brands",
+    label: "Shirts",
+    url: "/shop?category=shirt",
     children: [],
   },
 ];

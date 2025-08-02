@@ -1,5 +1,6 @@
 "use client"
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import BreadcrumbShop from "@/components/shop-page/BreadcrumbShop";
 import {
   Select,
@@ -18,14 +19,49 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
-import { getPaginatedProducts } from "@/data/products";
+import { getPaginatedProducts, getAllCategories } from "@/data/products";
+import { Product } from "@/types/product.types";
 
 export default function ShopPage() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  
   const [sortBy, setSortBy] = useState<"most-popular" | "low-price" | "high-price">("most-popular");
+  const [category, setCategory] = useState<Product["category"] | "all">("all");
   const [currentPage, setCurrentPage] = useState(1);
 
+  // Initialize category from URL params on component mount
+  useEffect(() => {
+    const urlCategory = searchParams.get('category');
+    if (urlCategory && isValidCategory(urlCategory)) {
+      setCategory(urlCategory as Product["category"]);
+    }
+  }, [searchParams]);
+
+  // Helper function to validate category
+  const isValidCategory = (cat: string): cat is Product["category"] => {
+    const validCategories: (Product["category"] | "all")[] = [
+      "t-shirt", "hoodie", "caps", "jeans", "shirt", "shorts", "polo"
+    ];
+    return validCategories.includes(cat as Product["category"]);
+  };
+
+  // Update URL when category changes
+  const updateURL = (newCategory: Product["category"] | "all") => {
+    const params = new URLSearchParams(searchParams.toString());
+    
+    if (newCategory === "all") {
+      params.delete('category');
+    } else {
+      params.set('category', newCategory);
+    }
+    
+    const newURL = params.toString() ? `/shop?${params.toString()}` : '/shop';
+    router.push(newURL, { scroll: false });
+  };
+
   const { products: paginatedProducts, totalProducts, totalPages, hasNextPage, hasPreviousPage } = 
-    getPaginatedProducts(currentPage, sortBy);
+    getPaginatedProducts(currentPage, sortBy, category === "all" ? undefined : category);
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
@@ -35,6 +71,12 @@ export default function ShopPage() {
   const handleSortChange = (value: "most-popular" | "low-price" | "high-price") => {
     setSortBy(value);
     setCurrentPage(1); // Reset to first page when sorting changes
+  };
+
+  const handleCategoryChange = (value: Product["category"] | "all") => {
+    setCategory(value);
+    setCurrentPage(1); // Reset to first page when category changes
+    updateURL(value); // Update URL with new category
   };
 
   return (
@@ -48,25 +90,48 @@ export default function ShopPage() {
               <div className="flex items-center justify-between">
                 <h1 className="font-bold text-2xl md:text-[32px]">Casual</h1>
               </div>
-              <div className="flex flex-col sm:items-center sm:flex-row">
+              <div className="flex flex-col sm:items-center sm:flex-row sm:space-x-4">
                 <span className="text-sm md:text-base text-black/60 mr-3">
                   Showing {((currentPage - 1) * 10) + 1}-{Math.min(currentPage * 10, totalProducts)} of {totalProducts} Products
                 </span>
-                <div className="flex items-center">
-                  Sort by:{" "}
-                  <Select
-                    value={sortBy}
-                    onValueChange={handleSortChange}
-                  >
-                    <SelectTrigger className="font-medium text-sm px-1.5 sm:text-base w-fit text-black bg-transparent shadow-none border-none">
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="most-popular">Date</SelectItem>
-                      <SelectItem value="low-price">Low Price</SelectItem>
-                      <SelectItem value="high-price">High Price</SelectItem>
-                    </SelectContent>
-                  </Select>
+                <div className="flex items-center space-x-4">
+                  <div className="flex items-center">
+                    Category:{" "}
+                    <Select
+                      value={category}
+                      onValueChange={handleCategoryChange}
+                    >
+                      <SelectTrigger className="font-medium text-sm px-1.5 sm:text-base w-fit text-black bg-transparent shadow-none border-none">
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="all">All</SelectItem>
+                        <SelectItem value="t-shirt">T-Shirts</SelectItem>
+                        <SelectItem value="jeans">Jeans</SelectItem>
+                        <SelectItem value="shirt">Shirts</SelectItem>
+                        <SelectItem value="polo">Polos</SelectItem>
+                        <SelectItem value="shorts">Shorts</SelectItem>
+                        <SelectItem value="hoodie">Hoodies</SelectItem>
+                        <SelectItem value="caps">Caps</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div className="flex items-center">
+                    Sort by:{" "}
+                    <Select
+                      value={sortBy}
+                      onValueChange={handleSortChange}
+                    >
+                      <SelectTrigger className="font-medium text-sm px-1.5 sm:text-base w-fit text-black bg-transparent shadow-none border-none">
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="most-popular">Date</SelectItem>
+                        <SelectItem value="low-price">Low Price</SelectItem>
+                        <SelectItem value="high-price">High Price</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
                 </div>
               </div>
             </div>

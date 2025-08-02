@@ -21,6 +21,7 @@ export const products: Product[] = [
             { name: "Blue", code: "#31344F" },
         ],
         sizes: ["Small", "Medium", "Large", "X-Large"],
+        category: "t-shirt",
     },
     {
         id: 2,
@@ -40,6 +41,7 @@ export const products: Product[] = [
             { name: "Black", code: "#000000" },
         ],
         sizes: ["Medium", "Large", "X-Large"],
+        category: "jeans",
     },
     {
         id: 3,
@@ -55,6 +57,7 @@ export const products: Product[] = [
         rating: 4.5,
         createdAt: new Date("2024-06-05T14:00:00Z"),
         sizes: ["Small", "Medium", "Large"],
+        category: "shirt",
     },
     {
         id: 4,
@@ -75,6 +78,7 @@ export const products: Product[] = [
             { name: "Navy", code: "#1E293B" },
         ],
         sizes: ["Small", "Medium", "Large", "X-Large"],
+        category: "t-shirt",
     },
     // topSellingData
     {
@@ -95,6 +99,7 @@ export const products: Product[] = [
             { name: "Gray", code: "#6B7280" },
         ],
         sizes: ["Medium", "Large", "X-Large"],
+        category: "shirt",
     },
     {
         id: 6,
@@ -115,6 +120,7 @@ export const products: Product[] = [
             { name: "White", code: "#FFFFFF" },
         ],
         sizes: ["Small", "Medium", "Large"],
+        category: "t-shirt",
     },
     {
         id: 7,
@@ -130,6 +136,7 @@ export const products: Product[] = [
         rating: 3.0,
         createdAt: new Date("2024-06-02T13:00:00Z"),
         sizes: ["Medium", "Large"],
+        category: "shorts",
     },
     {
         id: 8,
@@ -150,6 +157,7 @@ export const products: Product[] = [
             { name: "Black", code: "#000000" },
         ],
         sizes: ["Small", "Medium", "Large", "X-Large"],
+        category: "jeans",
     },
     // relatedProductData
     {
@@ -170,6 +178,7 @@ export const products: Product[] = [
             { name: "Pink", code: "#EC4899" },
         ],
         sizes: ["Small", "Medium", "Large"],
+        category: "polo",
     },
     {
         id: 13,
@@ -190,6 +199,7 @@ export const products: Product[] = [
             { name: "Yellow", code: "#EAB308" },
         ],
         sizes: ["Medium", "Large", "X-Large"],
+        category: "t-shirt",
     },
     {
         id: 14,
@@ -205,6 +215,7 @@ export const products: Product[] = [
         rating: 4.5,
         createdAt: new Date("2024-05-29T14:00:00Z"),
         sizes: ["Large", "X-Large"],
+        category: "polo",
     },
     {
         id: 15,
@@ -224,6 +235,7 @@ export const products: Product[] = [
             { name: "Maroon", code: "#7F1D1D" },
         ],
         sizes: ["Small", "Medium", "Large", "X-Large"],
+        category: "t-shirt",
     },
 ];
 
@@ -241,10 +253,14 @@ export interface PaginatedResult {
 
 export function getPaginatedProducts(
     page: number = 1,
-    sortBy: "most-popular" | "low-price" | "high-price" = "most-popular"
+    sortBy: "most-popular" | "low-price" | "high-price" = "most-popular",
+    category?: Product["category"]
 ): PaginatedResult {
+    // Filter products by category first (if category is provided)
+    let filteredProducts = category ? products.filter(product => product.category === category) : products;
+    
     // Sort products based on sortBy parameter
-    const sortedProducts = [...products].sort((a, b) => {
+    const sortedProducts = [...filteredProducts].sort((a, b) => {
         if (sortBy === "most-popular") {
             // Sort by createdAt (newest first)
             return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
@@ -276,4 +292,15 @@ export function getPaginatedProducts(
         hasNextPage: currentPage < totalPages,
         hasPreviousPage: currentPage > 1,
     };
+}
+
+// Filter products by category
+export function getProductsByCategory(category: Product["category"]): Product[] {
+    return products.filter(product => product.category === category);
+}
+
+// Get all unique categories
+export function getAllCategories(): Product["category"][] {
+    const categories = products.map(product => product.category);
+    return Array.from(new Set(categories));
 }

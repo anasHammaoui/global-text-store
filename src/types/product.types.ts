@@ -20,4 +20,5 @@ export type Product = {
   description: string;
   colors?: Color[];
   sizes?: string[];
+  category: "t-shirt" | "hoodie" | "caps" | "jeans" | "shirt" | "shorts" | "polo";
 };

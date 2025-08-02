@@ -19,13 +19,14 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
-import { getPaginatedProducts, getAllCategories } from "@/data/products";
+import { getPaginatedProducts } from "@/data/products";
 import { Product } from "@/types/product.types";
+import { useTranslation } from "@/lib/hooks/useTranslation";
 
 export default function ShopPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  
+   const t = useTranslation();
   const [sortBy, setSortBy] = useState<"default" | "most-popular" | "low-price" | "high-price">("default");
   const [category, setCategory] = useState<Product["category"] | "all">("all");
   const [currentPage, setCurrentPage] = useState(1);
@@ -105,7 +106,7 @@ export default function ShopPage() {
                         <SelectValue />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="all">All</SelectItem>
+                        <SelectItem value="all">{t.welcome}</SelectItem>
                         <SelectItem value="t-shirt">T-Shirts</SelectItem>
                         <SelectItem value="jeans">Jeans</SelectItem>
                         <SelectItem value="shirt">Shirts</SelectItem>

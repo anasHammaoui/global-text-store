@@ -1,4 +1,6 @@
+"use client";
 import { cn } from "@/lib/utils";
+import { integralCF } from "@/styles/fonts";
 import Link from "next/link";
 import React from "react";
 import { NavMenu } from "../navbar.types";
@@ -8,38 +10,41 @@ import {
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
 import { MenuItem } from "./MenuItem";
-
-const data: NavMenu = [
-  {
-    id: 1,
-    type: "MenuItem",
-    label: "T-Shirts",
-    url: "/shop?category=t-shirt",
-    children: [],
-  },
-  {
-    id: 2,
-    type: "MenuItem",
-    label: "Jeans",
-    url: "/shop?category=jeans",
-    children: [],
-  },
-  {
-    id: 3,
-    type: "MenuItem",
-    label: "Shirts",
-    url: "/shop?category=shirt",
-    children: [],
-  },
-];
+import { useParams } from "next/navigation";
 
 const TopNavbar = () => {
+  const params = useParams();
+  const locale = params.locale as string;
+
+  const data: NavMenu = [
+    {
+      id: 1,
+      type: "MenuItem",
+      label: "T-Shirts",
+      url: `/${locale}/shop?category=t-shirt`,
+      children: [],
+    },
+    {
+      id: 2,
+      type: "MenuItem",
+      label: "Jeans",
+      url: `/${locale}/shop?category=jeans`,
+      children: [],
+    },
+    {
+      id: 3,
+      type: "MenuItem",
+      label: "Shirts",
+      url: `/${locale}/shop?category=shirt`,
+      children: [],
+    },
+  ];
   return (
     <nav className="sticky top-0 bg-white z-20">
       <div className="flex relative max-w-frame mx-auto items-center justify-between md:justify-start px-4 xl:px-0">
         <div className="flex items-center">
             <Link
-            href="/"
+            href={`/${locale}`}
             className={cn([
               "flex items-center py-2 mb-2 mr-3 lg:mr-10",
             ])}

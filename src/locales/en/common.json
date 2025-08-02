@@ -1,0 +1,14 @@
+{
+  "welcome": "Welcome to our application",
+  "languageSelect": "Select your language",
+  "header": {
+    "title": "FIND CLOTHES THAT MATCHES YOUR STYLE",
+    "description": "Browse through our diverse range of meticulously crafted garments, designed to bring out your individuality and cater to your sense of style.",
+    "shopNow": "Shop Now",
+    "stats": {
+      "internationalBrands": "International Brands",
+      "highQualityProducts": "High-Quality Products",
+      "happyCustomers": "Happy Customers"
+    }
+  }
+}

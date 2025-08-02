@@ -1,0 +1,14 @@
+{
+  "welcome": "Bienvenue dans notre application",
+  "languageSelect": "Sélectionnez votre langue",
+  "header": {
+    "title": "VÊTEMENTS CORRESPONDENT À VOTRE STYLE",
+    "description": "Parcourez notre large gamme de vêtements soigneusement conçus, pensés pour révéler votre individualité et s’adapter à votre style.",
+    "shopNow": "Acheter maintenant",
+    "stats": {
+      "internationalBrands": "Marques internationales",
+      "highQualityProducts": "Produits de haute qualité",
+      "happyCustomers": "Clients satisfaits"
+    }
+  }
+}

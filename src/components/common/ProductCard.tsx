@@ -1,17 +1,22 @@
+"use client";
 import React from "react";
 import Rating from "../ui/Rating";
 import Image from "next/image";
 import Link from "next/link";
 import { Product } from "@/types/product.types";
+import { useParams } from "next/navigation";
 
 type ProductCardProps = {
   data: Product;
 };
 
 const ProductCard = ({ data }: ProductCardProps) => {
+  const params = useParams();
+  const locale = params.locale as string;
+
   return (
     <Link
-      href={`/shop/product/${data.id}/${data.title.split(" ").join("-")}`}
+      href={`/${locale}/shop/product/${data.id}/${data.title.split(" ").join("-")}`}
       className="flex flex-col items-start w-full max-w-[295px] mx-auto"
     >
       <div className="bg-[#F0EEED] rounded-[13px] lg:rounded-[20px] w-full aspect-square mb-2.5 xl:mb-4 overflow-hidden">

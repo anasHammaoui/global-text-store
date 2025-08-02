@@ -253,14 +253,14 @@ export interface PaginatedResult {
 
 export function getPaginatedProducts(
     page: number = 1,
-    sortBy: "most-popular" | "low-price" | "high-price" = "most-popular",
+    sortBy: "most-popular" | "low-price" | "high-price" | "default" = "default",
     category?: Product["category"]
 ): PaginatedResult {
     // Filter products by category first (if category is provided)
     let filteredProducts = category ? products.filter(product => product.category === category) : products;
     
-    // Sort products based on sortBy parameter
-    const sortedProducts = [...filteredProducts].sort((a, b) => {
+    // Sort products based on sortBy parameter (only if not default)
+    const sortedProducts = sortBy === "default" ? [...filteredProducts] : [...filteredProducts].sort((a, b) => {
         if (sortBy === "most-popular") {
             // Sort by createdAt (newest first)
             return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();

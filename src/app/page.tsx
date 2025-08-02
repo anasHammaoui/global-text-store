@@ -11,7 +11,7 @@ export default function Home() {
         <ProductListSec
           title="NEW ARRIVALS"
           data={[...products].sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())}
-          viewAllLink="/shop#new-arrivals"
+          viewAllLink="/shop"
         />
         <div className="max-w-frame mx-auto px-4 xl:px-0">
           <hr className="h-[1px] border-t-black/10 my-10 sm:my-16" />
@@ -20,7 +20,7 @@ export default function Home() {
           <ProductListSec
             title="top selling"
             data={[...products].sort((a, b) => (b.rating ?? 0) - (a.rating ?? 0))}
-            viewAllLink="/shop#top-selling"
+            viewAllLink="/shop"
           />
         </div>
       </main>

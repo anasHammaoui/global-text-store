@@ -26,7 +26,7 @@ export default function ShopPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
   
-  const [sortBy, setSortBy] = useState<"most-popular" | "low-price" | "high-price">("most-popular");
+  const [sortBy, setSortBy] = useState<"default" | "most-popular" | "low-price" | "high-price">("default");
   const [category, setCategory] = useState<Product["category"] | "all">("all");
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -68,7 +68,7 @@ export default function ShopPage() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleSortChange = (value: "most-popular" | "low-price" | "high-price") => {
+  const handleSortChange = (value: "default" | "most-popular" | "low-price" | "high-price") => {
     setSortBy(value);
     setCurrentPage(1); // Reset to first page when sorting changes
   };
@@ -126,6 +126,7 @@ export default function ShopPage() {
                         <SelectValue />
                       </SelectTrigger>
                       <SelectContent>
+                        <SelectItem value="default">Default</SelectItem>
                         <SelectItem value="most-popular">Date</SelectItem>
                         <SelectItem value="low-price">Low Price</SelectItem>
                         <SelectItem value="high-price">High Price</SelectItem>

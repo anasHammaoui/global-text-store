@@ -3,6 +3,11 @@ export type Discount = {
   percentage: number;
 };
 
+export type Color = {
+  name: string;
+  code: string;
+};
+
 export type Product = {
   id: number;
   title: string;
@@ -12,5 +17,7 @@ export type Product = {
   discount: Discount;
   rating: number;
   createdAt: Date;
-  description : string;
+  description: string;
+  colors?: Color[];
+  sizes?: string[];
 };

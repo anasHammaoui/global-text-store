@@ -6,30 +6,23 @@ import {
 } from "@/lib/features/products/productsSlice";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks/redux";
 import { RootState } from "@/lib/store";
-import { cn } from "@/lib/utils";
 import React from "react";
 import { IoMdCheckmark } from "react-icons/io";
 
-const colorsData: Color[] = [
-  {
-    name: "Brown",
-    code: "bg-[#4F4631]",
-  },
-  {
-    name: "Green",
-    code: "bg-[#314F4A]",
-  },
-  {
-    name: "Blue",
-    code: "bg-[#31344F]",
-  },
-];
+interface ColorSelectionProps {
+  "product-colors"?: Color[];
+}
 
-const ColorSelection = () => {
+const ColorSelection = ({ "product-colors": productColors }: ColorSelectionProps) => {
   const { colorSelection } = useAppSelector(
     (state: RootState) => state.products
   );
   const dispatch = useAppDispatch();
+
+  // If no colors are provided, don't render the component
+  if (!productColors || productColors.length === 0) {
+    return null;
+  }
 
   return (
     <div className="flex flex-col">
@@ -37,20 +30,20 @@ const ColorSelection = () => {
         Select Colors
       </span>
       <div className="flex items-center flex-wrap space-x-3 sm:space-x-4">
-        {colorsData.map((color, index) => (
-          <button
+        {productColors.map((color: Color, index: number) => (
+            <button
             key={index}
             type="button"
-            className={cn([
-              color.code,
-              "rounded-full w-9 sm:w-10 h-9 sm:h-10 flex items-center justify-center",
-            ])}
+            style={{ backgroundColor: color.code, border: "2px solid black" }}
+            className="rounded-full w-9 sm:w-10 h-9 sm:h-10 flex items-center justify-center"
             onClick={() => dispatch(setColorSelection(color))}
-          >
+            >
             {colorSelection.name === color.name && (
-              <IoMdCheckmark className="text-base text-white" />
+              <IoMdCheckmark
+              className={`text-base ${color.name.toLowerCase() === "white" ? "text-black" : "text-white"}`}
+              />
             )}
-          </button>
+            </button>
         ))}
       </div>
     </div>

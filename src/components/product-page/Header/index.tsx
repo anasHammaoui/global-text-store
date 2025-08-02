@@ -79,9 +79,9 @@ const Header = ({ data }: { data: Product }) => {
            {data.description || "No description available for this product."}
           </p>
           <hr className="h-[1px] border-t-black/10 mb-5" />
-          <ColorSelection />
+          <ColorSelection product-colors={data.colors} />
           <hr className="h-[1px] border-t-black/10 my-5" />
-          <SizeSelection />
+          <SizeSelection product-sizes={data.sizes} />
           <hr className="hidden md:block h-[1px] border-t-black/10 my-5" />
         </div>
       </div>

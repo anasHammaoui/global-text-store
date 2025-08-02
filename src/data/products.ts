@@ -15,6 +15,12 @@ export const products: Product[] = [
         },
         rating: 4.5,
         createdAt: new Date("2024-06-01T10:00:00Z"),
+        colors: [
+            { name: "Brown", code: "#4F4631" },
+            { name: "Green", code: "#314F4A" },
+            { name: "Blue", code: "#31344F" },
+        ],
+        sizes: ["Small", "Medium", "Large", "X-Large"],
     },
     {
         id: 2,
@@ -29,6 +35,11 @@ export const products: Product[] = [
         },
         rating: 3.5,
         createdAt: new Date("2024-06-03T12:00:00Z"),
+        colors: [
+            { name: "Blue", code: "#31344F" },
+            { name: "Black", code: "#000000" },
+        ],
+        sizes: ["Medium", "Large", "X-Large"],
     },
     {
         id: 3,
@@ -43,6 +54,7 @@ export const products: Product[] = [
         },
         rating: 4.5,
         createdAt: new Date("2024-06-05T14:00:00Z"),
+        sizes: ["Small", "Medium", "Large"],
     },
     {
         id: 4,
@@ -57,6 +69,12 @@ export const products: Product[] = [
         },
         rating: 4.5,
         createdAt: new Date("2024-06-07T16:00:00Z"),
+        colors: [
+            { name: "Red", code: "#FF3333" },
+            { name: "White", code: "#FFFFFF" },
+            { name: "Navy", code: "#1E293B" },
+        ],
+        sizes: ["Small", "Medium", "Large", "X-Large"],
     },
     // topSellingData
     {
@@ -72,6 +90,11 @@ export const products: Product[] = [
         },
         rating: 5.0,
         createdAt: new Date("2024-05-28T09:00:00Z"),
+        colors: [
+            { name: "Green", code: "#314F4A" },
+            { name: "Gray", code: "#6B7280" },
+        ],
+        sizes: ["Medium", "Large", "X-Large"],
     },
     {
         id: 6,
@@ -86,6 +109,12 @@ export const products: Product[] = [
         },
         rating: 4.0,
         createdAt: new Date("2024-05-30T11:00:00Z"),
+        colors: [
+            { name: "Orange", code: "#F97316" },
+            { name: "Black", code: "#000000" },
+            { name: "White", code: "#FFFFFF" },
+        ],
+        sizes: ["Small", "Medium", "Large"],
     },
     {
         id: 7,
@@ -100,6 +129,7 @@ export const products: Product[] = [
         },
         rating: 3.0,
         createdAt: new Date("2024-06-02T13:00:00Z"),
+        sizes: ["Medium", "Large"],
     },
     {
         id: 8,
@@ -114,6 +144,12 @@ export const products: Product[] = [
         },
         rating: 4.5,
         createdAt: new Date("2024-06-04T15:00:00Z"),
+        colors: [
+            { name: "Light Blue", code: "#93C5FD" },
+            { name: "Dark Blue", code: "#1E40AF" },
+            { name: "Black", code: "#000000" },
+        ],
+        sizes: ["Small", "Medium", "Large", "X-Large"],
     },
     // relatedProductData
     {
@@ -129,6 +165,11 @@ export const products: Product[] = [
         },
         rating: 4.0,
         createdAt: new Date("2024-05-25T10:00:00Z"),
+        colors: [
+            { name: "Purple", code: "#8B5CF6" },
+            { name: "Pink", code: "#EC4899" },
+        ],
+        sizes: ["Small", "Medium", "Large"],
     },
     {
         id: 13,
@@ -143,6 +184,12 @@ export const products: Product[] = [
         },
         rating: 3.5,
         createdAt: new Date("2024-05-27T12:00:00Z"),
+        colors: [
+            { name: "Teal", code: "#14B8A6" },
+            { name: "Cyan", code: "#06B6D4" },
+            { name: "Yellow", code: "#EAB308" },
+        ],
+        sizes: ["Medium", "Large", "X-Large"],
     },
     {
         id: 14,
@@ -157,6 +204,7 @@ export const products: Product[] = [
         },
         rating: 4.5,
         createdAt: new Date("2024-05-29T14:00:00Z"),
+        sizes: ["Large", "X-Large"],
     },
     {
         id: 15,
@@ -171,6 +219,11 @@ export const products: Product[] = [
         },
         rating: 5.0,
         createdAt: new Date("2024-05-31T16:00:00Z"),
+        colors: [
+            { name: "Black", code: "#000000" },
+            { name: "Maroon", code: "#7F1D1D" },
+        ],
+        sizes: ["Small", "Medium", "Large", "X-Large"],
     },
 ];
 

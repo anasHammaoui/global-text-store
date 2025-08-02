@@ -6,11 +6,20 @@ import { RootState } from "@/lib/store";
 import { cn } from "@/lib/utils";
 import React from "react";
 
-const SizeSelection = () => {
+interface SizeSelectionProps {
+  "product-sizes"?: string[];
+}
+
+const SizeSelection = ({ "product-sizes": productSizes }: SizeSelectionProps) => {
   const { sizeSelection } = useAppSelector(
     (state: RootState) => state.products
   );
   const dispatch = useAppDispatch();
+
+  // If no sizes are provided, don't render the component
+  if (!productSizes || productSizes.length === 0) {
+    return null;
+  }
 
   return (
     <div className="flex flex-col">
@@ -18,7 +27,7 @@ const SizeSelection = () => {
         Choose Size
       </span>
       <div className="flex items-center flex-wrap lg:space-x-3">
-        {["Small", "Medium", "Large", "X-Large"].map((size, index) => (
+        {productSizes.map((size: string, index: number) => (
           <button
             key={index}
             type="button"

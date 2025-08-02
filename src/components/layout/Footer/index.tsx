@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="max-w-frame mx-auto">
           <div className="flex justify-center items-center">
             <p className="text-sm text-center text-black/60">
-              © 2025 Shop.co. All rights reserved.
+              © 2025 GlobalTexCanada. All rights reserved.
             </p>
           </div>
         </div>

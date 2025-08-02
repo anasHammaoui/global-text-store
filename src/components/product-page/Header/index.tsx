@@ -79,10 +79,18 @@ const Header = ({ data }: { data: Product }) => {
            {data.description || "No description available for this product."}
           </p>
           <hr className="h-[1px] border-t-black/10 mb-5" />
-          <ColorSelection product-colors={data.colors} />
+          {data.colors && data.colors.length > 0 && (
+            <>
+            <ColorSelection product-colors={data.colors} />
           <hr className="h-[1px] border-t-black/10 my-5" />
+            </>
+          )}
+          {data.sizes && data.sizes.length > 0 && (
+            <>
           <SizeSelection product-sizes={data.sizes} />
           <hr className="hidden md:block h-[1px] border-t-black/10 my-5" />
+           </>
+          )}
         </div>
       </div>
     </>

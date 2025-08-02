@@ -1,5 +1,4 @@
 import { cn } from "@/lib/utils";
-import { integralCF } from "@/styles/fonts";
 import Link from "next/link";
 import React from "react";
 import { NavMenu } from "../navbar.types";
@@ -37,17 +36,20 @@ const data: NavMenu = [
 const TopNavbar = () => {
   return (
     <nav className="sticky top-0 bg-white z-20">
-      <div className="flex relative max-w-frame mx-auto items-center justify-between md:justify-start py-5 md:py-6 px-4 xl:px-0">
+      <div className="flex relative max-w-frame mx-auto items-center justify-between md:justify-start px-4 xl:px-0">
         <div className="flex items-center">
-          <Link
+            <Link
             href="/"
             className={cn([
-              integralCF.className,
-              "text-2xl lg:text-[32px] mb-2 mr-3 lg:mr-10",
+              "flex items-center py-2 mb-2 mr-3 lg:mr-10",
             ])}
-          >
-            SHOP.CO
-          </Link>
+            >
+            <img
+              src="/logo.png"
+              alt="SHOP.CO Logo"
+              className="h-8 w-auto lg:h-14"
+            />
+            </Link>
         </div>
         <NavigationMenu className="hidden md:flex ml-auto mr-2 lg:mr-7">
           <NavigationMenuList>

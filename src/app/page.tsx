@@ -1,4 +1,4 @@
-import ProductListSec from "@/components/common/ProductListSec";
+  import ProductListSec from "@/components/common/ProductListSec";
 import Brands from "@/components/homepage/Brands";
 import Header from "@/components/homepage/Header";
 import { products } from "@/data/products";

@@ -1,7 +1,7 @@
 import localFont from "next/font/local";
-import { Inter } from "next/font/google";
+import { Montserrat } from "next/font/google";
 
-const integralCF = Inter({
+const integralCF = Montserrat({
   subsets: ["latin", "latin-ext"],
   weight: ["700", "800", "900"],
   fallback: ["system-ui", "Arial", "sans-serif"],

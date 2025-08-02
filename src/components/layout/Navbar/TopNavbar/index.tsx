@@ -29,7 +29,9 @@ const TopNavbar = () => {
 
   const handleLanguageChange = (newLocale: string) => {
     const currentPath = pathname.replace(`/${locale}`, '');
-    router.push(`/${newLocale}${currentPath}`);
+    const newUrl = `/${newLocale}${currentPath}`;
+    // Navigate to new locale and refresh
+    window.location.href = newUrl;
   };
 
   const data: NavMenu = [

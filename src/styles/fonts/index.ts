@@ -1,14 +1,10 @@
 import localFont from "next/font/local";
+import { Inter } from "next/font/google";
 
-const integralCF = localFont({
-  src: [
-    {
-      path: "./integralcf-bold.woff",
-      weight: "700",
-      style: "normal",
-    },
-  ],
-  fallback: ["sans-serif"],
+const integralCF = Inter({
+  subsets: ["latin", "latin-ext"],
+  weight: ["700", "800", "900"],
+  fallback: ["system-ui", "Arial", "sans-serif"],
   variable: "--font-integralCF",
 });
 

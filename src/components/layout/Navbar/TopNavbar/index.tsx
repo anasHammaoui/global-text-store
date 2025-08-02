@@ -1,0 +1,71 @@
+import { cn } from "@/lib/utils";
+import { integralCF } from "@/styles/fonts";
+import Link from "next/link";
+import React from "react";
+import { NavMenu } from "../navbar.types";
+import { MenuList } from "./MenuList";
+import {
+  NavigationMenu,
+  NavigationMenuList,
+} from "@/components/ui/navigation-menu";
+import { MenuItem } from "./MenuItem";
+
+const data: NavMenu = [
+  {
+    id: 2,
+    type: "MenuItem",
+    label: "On Sale",
+    url: "/shop#on-sale",
+    children: [],
+  },
+  {
+    id: 3,
+    type: "MenuItem",
+    label: "New Arrivals",
+    url: "/shop#new-arrivals",
+    children: [],
+  },
+  {
+    id: 4,
+    type: "MenuItem",
+    label: "Brands",
+    url: "/shop#brands",
+    children: [],
+  },
+];
+
+const TopNavbar = () => {
+  return (
+    <nav className="sticky top-0 bg-white z-20">
+      <div className="flex relative max-w-frame mx-auto items-center justify-between md:justify-start py-5 md:py-6 px-4 xl:px-0">
+        <div className="flex items-center">
+          <Link
+            href="/"
+            className={cn([
+              integralCF.className,
+              "text-2xl lg:text-[32px] mb-2 mr-3 lg:mr-10",
+            ])}
+          >
+            SHOP.CO
+          </Link>
+        </div>
+        <NavigationMenu className="hidden md:flex ml-auto mr-2 lg:mr-7">
+          <NavigationMenuList>
+            {data.map((item) => (
+              <React.Fragment key={item.id}>
+                {item.type === "MenuItem" && (
+                  <MenuItem label={item.label} url={item.url} />
+                )}
+                {item.type === "MenuList" && (
+                  <MenuList data={item.children} label={item.label} />
+                )}
+              </React.Fragment>
+            ))}
+          </NavigationMenuList>
+        </NavigationMenu>
+      </div>
+    </nav>
+  );
+};
+
+export default TopNavbar;

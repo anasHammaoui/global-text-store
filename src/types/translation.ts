@@ -53,6 +53,22 @@ export type Translations = {
       priceHighLow: string;
     };
   };
+  order: {
+    title: string;
+    quantity: string;
+    fullName: string;
+    email: string;
+    phone: string;
+    address: string;
+    color: string;
+    size: string;
+    cancel: string;
+    submit: string;
+    submitting: string;
+    success: string;
+    error: string;
+    orderNow: string;
+  };
   footer: {
     company: {
       title: string;

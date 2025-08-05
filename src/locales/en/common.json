@@ -46,5 +46,21 @@
       "lowPrice": "Low Price",
       "highPrice": "High Price"
     }
+  },
+  "order": {
+    "title": "Order Now",
+    "quantity": "Quantity",
+    "fullName": "Full Name",
+    "email": "Email",
+    "phone": "Phone Number",
+    "address": "Address",
+    "color": "Color",
+    "size": "Size",
+    "cancel": "Cancel",
+    "submit": "Submit Order",
+    "submitting": "Submitting...",
+    "success": "Order submitted successfully!",
+    "error": "Error submitting order. Please try again.",
+    "orderNow": "🛒 ORDER NOW ⚡"
   }
 }

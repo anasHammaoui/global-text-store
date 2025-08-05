@@ -46,5 +46,21 @@
       "lowPrice": "Prix bas",
       "highPrice": "Prix élevé"
     }
+  },
+  "order": {
+    "title": "Commander maintenant",
+    "quantity": "Quantité",
+    "fullName": "Nom complet",
+    "email": "Email",
+    "phone": "Numéro de téléphone",
+    "address": "Adresse",
+    "color": "Couleur",
+    "size": "Taille",
+    "cancel": "Annuler",
+    "submit": "Soumettre la commande",
+    "submitting": "Soumission...",
+    "success": "Commande soumise avec succès!",
+    "error": "Erreur lors de la soumission de la commande. Veuillez réessayer.",
+    "orderNow": "🛒 COMMANDER ⚡"
   }
 }

@@ -1,6 +1,6 @@
 "use client"
 import React, { useState, useEffect } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams, useParams } from "next/navigation";
 import BreadcrumbShop from "@/components/shop-page/BreadcrumbShop";
 import {
   Select,
@@ -19,13 +19,16 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
-import { getPaginatedProducts, getAllCategories } from "@/data/products";
+import { getPaginatedProducts } from "@/data/products";
 import { Product } from "@/types/product.types";
+import { useTranslation } from "@/lib/hooks/useTranslation";
 
 export default function ShopPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  
+  const params = useParams();
+  const locale = params?.locale as string || 'en';
+  const t = useTranslation();
   const [sortBy, setSortBy] = useState<"default" | "most-popular" | "low-price" | "high-price">("default");
   const [category, setCategory] = useState<Product["category"] | "all">("all");
   const [currentPage, setCurrentPage] = useState(1);
@@ -56,7 +59,7 @@ export default function ShopPage() {
       params.set('category', newCategory);
     }
     
-    const newURL = params.toString() ? `/shop?${params.toString()}` : '/shop';
+    const newURL = params.toString() ? `/${locale}/shop?${params.toString()}` : `/${locale}/shop`;
     router.push(newURL, { scroll: false });
   };
 
@@ -88,15 +91,15 @@ export default function ShopPage() {
           <div className="flex flex-col w-full space-y-5">
             <div className="flex flex-col lg:flex-row lg:justify-between">
               <div className="flex items-center justify-between">
-                <h1 className="font-bold text-2xl md:text-[32px]">Casual</h1>
+                <h1 className="font-bold text-2xl md:text-[32px]">{t?.shop?.title || "Casual"}</h1>
               </div>
               <div className="flex flex-col sm:items-center sm:flex-row sm:space-x-4">
                 <span className="text-sm md:text-base text-black/60 mr-3">
-                  Showing {((currentPage - 1) * 10) + 1}-{Math.min(currentPage * 10, totalProducts)} of {totalProducts} Products
+                  {t?.shop?.showing || "Showing"} {((currentPage - 1) * 10) + 1}-{Math.min(currentPage * 10, totalProducts)} {t?.shop?.of || "of"} {totalProducts} {t?.shop?.products || "Products"}
                 </span>
                 <div className="flex items-center space-x-4">
                   <div className="flex items-center">
-                    Category:{" "}
+                    {t?.shop?.category || "Category"}:{" "}
                     <Select
                       value={category}
                       onValueChange={handleCategoryChange}
@@ -105,19 +108,19 @@ export default function ShopPage() {
                         <SelectValue />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="all">All</SelectItem>
-                        <SelectItem value="t-shirt">T-Shirts</SelectItem>
-                        <SelectItem value="jeans">Jeans</SelectItem>
-                        <SelectItem value="shirt">Shirts</SelectItem>
-                        <SelectItem value="polo">Polos</SelectItem>
-                        <SelectItem value="shorts">Shorts</SelectItem>
-                        <SelectItem value="hoodie">Hoodies</SelectItem>
-                        <SelectItem value="caps">Caps</SelectItem>
+                        <SelectItem value="all">{t?.shop?.categories?.all || "All"}</SelectItem>
+                        <SelectItem value="t-shirt">{t?.shop?.categories?.tShirts || "T-Shirts"}</SelectItem>
+                        <SelectItem value="jeans">{t?.shop?.categories?.jeans || "Jeans"}</SelectItem>
+                        <SelectItem value="shirt">{t?.shop?.categories?.shirts || "Shirts"}</SelectItem>
+                        <SelectItem value="polo">{t?.shop?.categories?.polos || "Polos"}</SelectItem>
+                        <SelectItem value="shorts">{t?.shop?.categories?.shorts || "Shorts"}</SelectItem>
+                        <SelectItem value="hoodie">{t?.shop?.categories?.hoodies || "Hoodies"}</SelectItem>
+                        <SelectItem value="caps">{t?.shop?.categories?.caps || "Caps"}</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
                   <div className="flex items-center">
-                    Sort by:{" "}
+                    {t?.shop?.sortBy || "Sort by"}:{" "}
                     <Select
                       value={sortBy}
                       onValueChange={handleSortChange}
@@ -126,10 +129,10 @@ export default function ShopPage() {
                         <SelectValue />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="default">Default</SelectItem>
-                        <SelectItem value="most-popular">Date</SelectItem>
-                        <SelectItem value="low-price">Low Price</SelectItem>
-                        <SelectItem value="high-price">High Price</SelectItem>
+                        <SelectItem value="default">{t?.shop?.sortOptions?.default || "Default"}</SelectItem>
+                        <SelectItem value="most-popular">{t?.shop?.sortOptions?.mostPopular || "Most Popular"}</SelectItem>
+                        <SelectItem value="low-price">{t?.shop?.sortOptions?.priceLowHigh || "Low Price"}</SelectItem>
+                        <SelectItem value="high-price">{t?.shop?.sortOptions?.priceHighLow || "High Price"}</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>

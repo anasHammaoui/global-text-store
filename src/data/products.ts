@@ -1,243 +1,45 @@
 import { Product } from "@/types/product.types";
 
-export const products: Product[] = [
-    // newArrivalsData
-    {
-        id: 1,
-        title: "T-shirt with Tape Details",
-        description: "A stylish t-shirt featuring unique tape details for a modern look.",
-        srcUrl: "/images/pic1.png",
-        gallery: ["/images/pic1.png", "/images/pic10.png", "/images/pic11.png"],
-        price: 120,
-        discount: {
-            amount: 0,
-            percentage: 0,
-        },
-        rating: 4.5,
-        createdAt: new Date("2024-06-01T10:00:00Z"),
-        colors: [
-            { name: "Brown", code: "#4F4631" },
-            { name: "Green", code: "#314F4A" },
-            { name: "Blue", code: "#31344F" },
-        ],
-        sizes: ["Small", "Medium", "Large", "X-Large"],
-        category: "t-shirt",
-    },
-    {
-        id: 2,
-        title: "Skinny Fit Jeans",
-        description: "Classic skinny fit jeans with a comfortable stretch and modern style.",
-        srcUrl: "/images/pic2.png",
-        gallery: ["/images/pic2.png"],
-        price: 260,
-        discount: {
-            amount: 0,
-            percentage: 20,
-        },
-        rating: 3.5,
-        createdAt: new Date("2024-06-03T12:00:00Z"),
-        colors: [
-            { name: "Blue", code: "#31344F" },
-            { name: "Black", code: "#000000" },
-        ],
-        sizes: ["Medium", "Large", "X-Large"],
-        category: "jeans",
-    },
-    {
-        id: 3,
-        title: "Chechered Shirt",
-        description: "A trendy checkered shirt perfect for casual and semi-formal occasions.",
-        srcUrl: "/images/pic3.png",
-        gallery: ["/images/pic3.png"],
-        price: 180,
-        discount: {
-            amount: 0,
-            percentage: 0,
-        },
-        rating: 4.5,
-        createdAt: new Date("2024-06-05T14:00:00Z"),
-        sizes: ["Small", "Medium", "Large"],
-        category: "shirt",
-    },
-    {
-        id: 4,
-        title: "Sleeve Striped T-shirt",
-        description: "Comfortable t-shirt with stylish sleeve stripes for a sporty look.",
-        srcUrl: "/images/pic4.png",
-        gallery: ["/images/pic4.png", "/images/pic10.png", "/images/pic11.png"],
-        price: 160,
-        discount: {
-            amount: 0,
-            percentage: 30,
-        },
-        rating: 4.5,
-        createdAt: new Date("2024-06-07T16:00:00Z"),
-        colors: [
-            { name: "Red", code: "#FF3333" },
-            { name: "White", code: "#FFFFFF" },
-            { name: "Navy", code: "#1E293B" },
-        ],
-        sizes: ["Small", "Medium", "Large", "X-Large"],
-        category: "t-shirt",
-    },
-    // topSellingData
-    {
-        id: 5,
-        title: "Vertical Striped Shirt",
-        description: "A vertical striped shirt that adds a touch of sophistication to any outfit.",
-        srcUrl: "/images/pic5.png",
-        gallery: ["/images/pic5.png", "/images/pic10.png", "/images/pic11.png"],
-        price: 232,
-        discount: {
-            amount: 0,
-            percentage: 20,
-        },
-        rating: 5.0,
-        createdAt: new Date("2024-05-28T09:00:00Z"),
-        colors: [
-            { name: "Green", code: "#314F4A" },
-            { name: "Gray", code: "#6B7280" },
-        ],
-        sizes: ["Medium", "Large", "X-Large"],
-        category: "shirt",
-    },
-    {
-        id: 6,
-        title: "Courage Graphic T-shirt",
-        description: "Graphic t-shirt with a bold 'Courage' print for a confident look.",
-        srcUrl: "/images/pic6.png",
-        gallery: ["/images/pic6.png", "/images/pic10.png", "/images/pic11.png"],
-        price: 145,
-        discount: {
-            amount: 0,
-            percentage: 0,
-        },
-        rating: 4.0,
-        createdAt: new Date("2024-05-30T11:00:00Z"),
-        colors: [
-            { name: "Orange", code: "#F97316" },
-            { name: "Black", code: "#000000" },
-            { name: "White", code: "#FFFFFF" },
-        ],
-        sizes: ["Small", "Medium", "Large"],
-        category: "t-shirt",
-    },
-    {
-        id: 7,
-        title: "Loose Fit Bermuda Shorts",
-        description: "Relaxed fit Bermuda shorts for ultimate comfort during warm days.",
-        srcUrl: "/images/pic7.png",
-        gallery: ["/images/pic7.png"],
-        price: 80,
-        discount: {
-            amount: 0,
-            percentage: 0,
-        },
-        rating: 3.0,
-        createdAt: new Date("2024-06-02T13:00:00Z"),
-        sizes: ["Medium", "Large"],
-        category: "shorts",
-    },
-    {
-        id: 8,
-        title: "Faded Skinny Jeans",
-        description: "Faded skinny jeans with a modern wash for a trendy appearance.",
-        srcUrl: "/images/pic8.png",
-        gallery: ["/images/pic8.png"],
-        price: 210,
-        discount: {
-            amount: 0,
-            percentage: 0,
-        },
-        rating: 4.5,
-        createdAt: new Date("2024-06-04T15:00:00Z"),
-        colors: [
-            { name: "Light Blue", code: "#93C5FD" },
-            { name: "Dark Blue", code: "#1E40AF" },
-            { name: "Black", code: "#000000" },
-        ],
-        sizes: ["Small", "Medium", "Large", "X-Large"],
-        category: "jeans",
-    },
-    // relatedProductData
-    {
-        id: 12,
-        title: "Polo with Contrast Trims",
-        description: "Classic polo shirt featuring contrast trims for a refined finish.",
-        srcUrl: "/images/pic12.png",
-        gallery: ["/images/pic12.png", "/images/pic10.png", "/images/pic11.png"],
-        price: 242,
-        discount: {
-            amount: 0,
-            percentage: 20,
-        },
-        rating: 4.0,
-        createdAt: new Date("2024-05-25T10:00:00Z"),
-        colors: [
-            { name: "Purple", code: "#8B5CF6" },
-            { name: "Pink", code: "#EC4899" },
-        ],
-        sizes: ["Small", "Medium", "Large"],
-        category: "polo",
-    },
-    {
-        id: 13,
-        title: "Gradient Graphic T-shirt",
-        description: "Eye-catching t-shirt with a gradient graphic design.",
-        srcUrl: "/images/pic13.png",
-        gallery: ["/images/pic13.png", "/images/pic10.png", "/images/pic11.png"],
-        price: 145,
-        discount: {
-            amount: 0,
-            percentage: 0,
-        },
-        rating: 3.5,
-        createdAt: new Date("2024-05-27T12:00:00Z"),
-        colors: [
-            { name: "Teal", code: "#14B8A6" },
-            { name: "Cyan", code: "#06B6D4" },
-            { name: "Yellow", code: "#EAB308" },
-        ],
-        sizes: ["Medium", "Large", "X-Large"],
-        category: "t-shirt",
-    },
-    {
-        id: 14,
-        title: "Polo with Tipping Details",
-        description: "Polo shirt with subtle tipping details for a stylish touch.",
-        srcUrl: "/images/pic14.png",
-        gallery: ["/images/pic14.png"],
-        price: 180,
-        discount: {
-            amount: 0,
-            percentage: 0,
-        },
-        rating: 4.5,
-        createdAt: new Date("2024-05-29T14:00:00Z"),
-        sizes: ["Large", "X-Large"],
-        category: "polo",
-    },
-    {
-        id: 15,
-        title: "Black Striped T-shirt",
-        description: "Black t-shirt with bold stripes for a modern and versatile look.",
-        srcUrl: "/images/pic15.png",
-        gallery: ["/images/pic15.png"],
-        price: 150,
-        discount: {
-            amount: 0,
-            percentage: 30,
-        },
-        rating: 5.0,
-        createdAt: new Date("2024-05-31T16:00:00Z"),
-        colors: [
-            { name: "Black", code: "#000000" },
-            { name: "Maroon", code: "#7F1D1D" },
-        ],
-        sizes: ["Small", "Medium", "Large", "X-Large"],
-        category: "t-shirt",
-    },
-];
+// Import locale-specific product data
+import { products as enProducts } from '../locales/en/products/products';
+import { products as frProducts } from '../locales/fr/products/products';
+
+// Product data by locale
+const productsByLocale: Record<string, Product[]> = {
+  en: enProducts,
+  fr: frProducts
+};
+
+// Function to detect current locale
+const getCurrentLocale = (): string => {
+  // Check if we're in browser environment
+  if (typeof window !== 'undefined') {
+    // Try to get locale from URL pathname
+    const pathname = window.location.pathname;
+    const localeMatch = pathname.match(/^\/([a-z]{2})\//);
+    if (localeMatch && productsByLocale[localeMatch[1]]) {
+      return localeMatch[1];
+    }
+    
+    // Fallback to browser language
+    const browserLang = navigator.language.split('-')[0];
+    if (productsByLocale[browserLang]) {
+      return browserLang;
+    }
+  }
+  
+  // Default fallback
+  return 'en';
+};
+
+// Get products based on locale with fallback to English
+export const getProducts = (locale?: string): Product[] => {
+  const targetLocale = locale || getCurrentLocale();
+  return productsByLocale[targetLocale] || productsByLocale.en;
+};
+
+// Export dynamic products based on current locale
+export const products: Product[] = getProducts();
 
 // Pagination utility functions
 export const PRODUCTS_PER_PAGE = 10;
@@ -254,10 +56,14 @@ export interface PaginatedResult {
 export function getPaginatedProducts(
     page: number = 1,
     sortBy: "most-popular" | "low-price" | "high-price" | "default" = "default",
-    category?: Product["category"]
+    category?: Product["category"],
+    locale?: string
 ): PaginatedResult {
+    // Get products based on locale (auto-detect if not provided)
+    const localeProducts = getProducts(locale);
+    
     // Filter products by category first (if category is provided)
-    let filteredProducts = category ? products.filter(product => product.category === category) : products;
+    let filteredProducts = category ? localeProducts.filter(product => product.category === category) : localeProducts;
     
     // Sort products based on sortBy parameter (only if not default)
     const sortedProducts = sortBy === "default" ? [...filteredProducts] : [...filteredProducts].sort((a, b) => {
@@ -294,13 +100,15 @@ export function getPaginatedProducts(
     };
 }
 
-// Filter products by category
-export function getProductsByCategory(category: Product["category"]): Product[] {
-    return products.filter(product => product.category === category);
+// Filter products by category with locale support
+export function getProductsByCategory(category: Product["category"], locale?: string): Product[] {
+    const localeProducts = getProducts(locale);
+    return localeProducts.filter(product => product.category === category);
 }
 
-// Get all unique categories
-export function getAllCategories(): Product["category"][] {
-    const categories = products.map(product => product.category);
+// Get all unique categories with locale support
+export function getAllCategories(locale?: string): Product["category"][] {
+    const localeProducts = getProducts(locale);
+    const categories = localeProducts.map(product => product.category);
     return Array.from(new Set(categories));
 }

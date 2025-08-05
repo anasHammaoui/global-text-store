@@ -1,15 +1,17 @@
+"use client";
 import ProductListSec from "@/components/common/ProductListSec";
 import BreadcrumbProduct from "@/components/product-page/BreadcrumbProduct";
 import Header from "@/components/product-page/Header";
 import { products } from "@/data/products";
 import { notFound } from "next/navigation";
-
+import { useTranslation } from "@/lib/hooks/useTranslation";
 
 export default function ProductPage({
   params,
 }: {
   params: { slug: string[] };
 }) {
+  const t = useTranslation();
   const productData = products.find(
     (product) => product.id === Number(params.slug[0])
   );
@@ -28,7 +30,7 @@ export default function ProductPage({
         </section>
       </div>
       <div className="mb-[50px] sm:mb-20">
-        <ProductListSec title="You might also like" data={products.filter((item) => item.id !== productData?.id)} />
+        <ProductListSec title={t?.shop?.ProductListSec || "You might also like"} data={products.filter((item) => item.id !== productData?.id)} />
       </div>
     </main>
   );

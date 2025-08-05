@@ -1,0 +1,66 @@
+{
+  "welcome": "Welcome to our application",
+  "languageSelect": "Select your language",
+  "header": {
+    "title": "FIND CLOTHES THAT MATCHES YOUR STYLE",
+    "description": "Browse through our diverse range of meticulously crafted garments, designed to bring out your individuality and cater to your sense of style.",
+    "shopNow": "Shop Now",
+    "stats": {
+      "internationalBrands": "International Brands",
+      "highQualityProducts": "High-Quality Products",
+      "happyCustomers": "Happy Customers"
+    },
+    "newArrivals": "New Arrivals",
+    "topSelling": "Best Sellers",
+    "viewAll": "View All"
+  },
+  "copyright": "© 2023 Global Tex Store. All rights reserved.",
+    "links": {
+      "home": "Home",
+      "shop": "Shop",
+      "tShirt": "T-Shirt",
+      "jeans": "Jeans",
+      "shirts": "Shirts"
+    },
+  "shop": {
+    "title": "Casual",
+    "showing": "Showing",
+    "of": "of",
+    "products": "Products",
+    "category": "Category",
+    "sortBy": "Sort by",
+    "ProductListSec": "You might also like",
+    "categories": {
+      "all": "All",
+      "tShirts": "T-Shirts",
+      "jeans": "Jeans",
+      "shirts": "Shirts",
+      "polos": "Polos",
+      "shorts": "Shorts",
+      "hoodies": "Hoodies",
+      "caps": "Caps"
+    },
+    "sortOptions": {
+      "default": "Default",
+      "mostPopular": "Date",
+      "lowPrice": "Low Price",
+      "highPrice": "High Price"
+    }
+  },
+  "order": {
+    "title": "Order Now",
+    "quantity": "Quantity",
+    "fullName": "Full Name",
+    "email": "Email",
+    "phone": "Phone Number",
+    "address": "Address",
+    "color": "Color",
+    "size": "Size",
+    "cancel": "Cancel",
+    "submit": "Submit Order",
+    "submitting": "Submitting...",
+    "success": "Order submitted successfully!",
+    "error": "Error submitting order. Please try again.",
+    "orderNow": "🛒 ORDER NOW ⚡"
+  }
+}
